@@ -17,9 +17,9 @@ using namespace std;
 int previous;
 
 int main(int argc, const char * argv[]) {
-    void primes(long long, int, int);
+    void primes(long long unsigned, int, int);
     
-    long long n;
+    long long unsigned n;
     ifstream fin("previous.txt");
     int threads, threadNumber(0);
     
@@ -58,21 +58,19 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 
-void primes(long long n, int threads, int threadNumber) {
+void primes(long long unsigned n, int threads, int threadNumber) {
     string fname = "primes" + to_string(previous) + ".txt";
     previous++;
     ofstream fout(fname);
     
-    cout << "Thread " << threadNumber << "writing to file " << fname;
-    
     bool prime;
     threads = threads * 2;
-    long long startValue = 5 + (2 * threadNumber);
-    for (long long i(startValue); i <= n; i+=threads) {
+    long long unsigned startValue = 5 + (2 * threadNumber);
+    for (long long unsigned i(startValue); i <= n; i+=threads) {
         long double sqroot = sqrt(i);
         prime = false;
         
-        for (long long j(2); j <= sqroot; j++) {
+        for (long long unsigned j(2); j <= sqroot; j++) {
             if (i % j == 0) {
                 prime = false;
                 break;
@@ -82,7 +80,7 @@ void primes(long long n, int threads, int threadNumber) {
             }
         }
         if (prime) {
-            cout << i << " ";
+            cout << i << " ";   // for "convenience"
             fout << i << "\n";
         }
     }
