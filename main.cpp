@@ -1,11 +1,3 @@
-//
-//  main.cpp
-//  Prime Finder
-//
-//  Created by Evan Crabtree on 16/03/2019.
-//  Copyright © 2019 QuantumFluctuator. All rights reserved.
-//
-
 #include <iostream>
 #include <fstream>
 #include <thread>
